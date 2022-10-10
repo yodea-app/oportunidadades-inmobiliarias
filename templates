@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_46988563d5174a2496549bfd8240c349 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_46988563d5174a2496549bfd8240c349" ></div>
+        
+</body>
+<script>    
+    
+            var map_46988563d5174a2496549bfd8240c349 = L.map(
+                "map_46988563d5174a2496549bfd8240c349",
+                {
+                    center: [25.678, -100.3133],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6977f52769214b70b02ab8a6b0d75666 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+            var marker_e180fd9139d74d8b831dc97690402aa4 = L.marker(
+                [25.6780368, -100.3133067],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_22ee1a6b101b4ef788d07eb9a4479fc2 = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_e180fd9139d74d8b831dc97690402aa4.setIcon(custom_icon_22ee1a6b101b4ef788d07eb9a4479fc2);
+        
+    
+        var popup_2c764939fc8b47d6937f0647c36e9e90 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_a48ca41f8911405885309c3286637ed1 = $(`<div id="html_a48ca41f8911405885309c3286637ed1" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $53100</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/preventa-de-departamento-en-el-centro-de-monterrey-centro?index=9330</a></div><div><strong>En Venta: &#20 $28820</strong></div></div>`)[0];
+            popup_2c764939fc8b47d6937f0647c36e9e90.setContent(html_a48ca41f8911405885309c3286637ed1);
+        
+
+        marker_e180fd9139d74d8b831dc97690402aa4.bindPopup(popup_2c764939fc8b47d6937f0647c36e9e90)
+        ;
+
+        
+    
+    
+            marker_e180fd9139d74d8b831dc97690402aa4.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_f4518321b3e3436b99cbd26ecbdf3136 = L.marker(
+                [25.6863582, -100.3761083],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_e7367602d0144041aa646e924bc5fe9f = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_f4518321b3e3436b99cbd26ecbdf3136.setIcon(custom_icon_e7367602d0144041aa646e924bc5fe9f);
+        
+    
+        var popup_860efb13b83040fe83870fa1687c2938 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_32548a9877dd40fcb0c440b16ec0c754 = $(`<div id="html_32548a9877dd40fcb0c440b16ec0c754" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $55556</strong></p><br></br><div><a href=https://propiedades.com/inmuebles/departamento-en-venta-camino-de-los-ibis-colinas-de-san-jeronimo-nuevo_leon-9816114#pagina=312&tipos=residencial-venta&area=nuevo-leon&precio-min=500000&precio-max=30000000&pos=22</a></div><div><strong>En Venta: &#20 $33639</strong></div></div>`)[0];
+            popup_860efb13b83040fe83870fa1687c2938.setContent(html_32548a9877dd40fcb0c440b16ec0c754);
+        
+
+        marker_f4518321b3e3436b99cbd26ecbdf3136.bindPopup(popup_860efb13b83040fe83870fa1687c2938)
+        ;
+
+        
+    
+    
+            marker_f4518321b3e3436b99cbd26ecbdf3136.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_8508af171a9a49b8b471c98038336c18 = L.marker(
+                [25.697618, -100.316839],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_f61c42ef657d46a2aab1a948090d20d6 = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_8508af171a9a49b8b471c98038336c18.setIcon(custom_icon_f61c42ef657d46a2aab1a948090d20d6);
+        
+    
+        var popup_a1772f994b134a8cab4045c262321aba = L.popup({"maxWidth": "100%"});
+
+        
+            var html_90f922ad18eb494bafd32948fa26695d = $(`<div id="html_90f922ad18eb494bafd32948fa26695d" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $53002</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/venta-departamento-centro-mty?index=4305</a></div><div><strong>En Venta: &#20 $32142</strong></div></div>`)[0];
+            popup_a1772f994b134a8cab4045c262321aba.setContent(html_90f922ad18eb494bafd32948fa26695d);
+        
+
+        marker_8508af171a9a49b8b471c98038336c18.bindPopup(popup_a1772f994b134a8cab4045c262321aba)
+        ;
+
+        
+    
+    
+            marker_8508af171a9a49b8b471c98038336c18.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_9e49088c82274b53ab19856e86d1d25e = L.marker(
+                [25.6780368, -100.3133067],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_1970078f563d4297b5764d4f083744f1 = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_9e49088c82274b53ab19856e86d1d25e.setIcon(custom_icon_1970078f563d4297b5764d4f083744f1);
+        
+    
+        var popup_c377202802f047f5aec0a0b4c050df04 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_860a82d7be664ff8be2f07c0a40b5eca = $(`<div id="html_860a82d7be664ff8be2f07c0a40b5eca" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $59524</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/departamento-en-venta-en-centro-de-monterrey-1d90295d-5d2d-4b81-aa82-9a048c6f4623?index=13687</a></div><div><strong>En Venta: &#20 $36923</strong></div></div>`)[0];
+            popup_c377202802f047f5aec0a0b4c050df04.setContent(html_860a82d7be664ff8be2f07c0a40b5eca);
+        
+
+        marker_9e49088c82274b53ab19856e86d1d25e.bindPopup(popup_c377202802f047f5aec0a0b4c050df04)
+        ;
+
+        
+    
+    
+            marker_9e49088c82274b53ab19856e86d1d25e.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_26340d8abeea4c1a8170d38db2120e92 = L.marker(
+                [25.68505995, -100.3263629],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_9c5113b888af4bbbac07dabeebdcff4f = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_26340d8abeea4c1a8170d38db2120e92.setIcon(custom_icon_9c5113b888af4bbbac07dabeebdcff4f);
+        
+    
+        var popup_a4870ca70a3b46ae98bb143d9bed368e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c84046c5e6ff4e3cb583cf091cd6585a = $(`<div id="html_c84046c5e6ff4e3cb583cf091cd6585a" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $54149</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/departamento-en-venta-zona-centro-monterrey-643d2f5c-05eb-412f-98df-151ed2181c88?index=18841</a></div><div><strong>En Venta: &#20 $35446</strong></div></div>`)[0];
+            popup_a4870ca70a3b46ae98bb143d9bed368e.setContent(html_c84046c5e6ff4e3cb583cf091cd6585a);
+        
+
+        marker_26340d8abeea4c1a8170d38db2120e92.bindPopup(popup_a4870ca70a3b46ae98bb143d9bed368e)
+        ;
+
+        
+    
+    
+            marker_26340d8abeea4c1a8170d38db2120e92.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_de3e31096a73488da45ed740a24f6db4 = L.marker(
+                [25.6671762, -100.3067121],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_b76ec402c05b47a19290a855a446b9dc = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_de3e31096a73488da45ed740a24f6db4.setIcon(custom_icon_b76ec402c05b47a19290a855a446b9dc);
+        
+    
+        var popup_f4d9c3c1f64440108d753505ef2d90b7 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_1f370064a8ab447a99a7c761f00f90cc = $(`<div id="html_1f370064a8ab447a99a7c761f00f90cc" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $55043</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/departamento-en-preventa-en-barrio-antiguo?index=6573</a></div><div><strong>En Venta: &#20 $36269</strong></div></div>`)[0];
+            popup_f4d9c3c1f64440108d753505ef2d90b7.setContent(html_1f370064a8ab447a99a7c761f00f90cc);
+        
+
+        marker_de3e31096a73488da45ed740a24f6db4.bindPopup(popup_f4d9c3c1f64440108d753505ef2d90b7)
+        ;
+
+        
+    
+    
+            marker_de3e31096a73488da45ed740a24f6db4.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_d8bce0e7d051443cbe3e7beaea505862 = L.marker(
+                [25.668553, -100.3212568],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_adc209a2ff414e85988b13ea910c571e = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_d8bce0e7d051443cbe3e7beaea505862.setIcon(custom_icon_adc209a2ff414e85988b13ea910c571e);
+        
+    
+        var popup_1299502a3165433eabdf262244127a1f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_22deba7e2b14427e84a2e81adf49e485 = $(`<div id="html_22deba7e2b14427e84a2e81adf49e485" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $54940</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/gran-venta-en-capital-semilla?index=2319</a></div><div><strong>En Venta: &#20 $37142</strong></div></div>`)[0];
+            popup_1299502a3165433eabdf262244127a1f.setContent(html_22deba7e2b14427e84a2e81adf49e485);
+        
+
+        marker_d8bce0e7d051443cbe3e7beaea505862.bindPopup(popup_1299502a3165433eabdf262244127a1f)
+        ;
+
+        
+    
+    
+            marker_d8bce0e7d051443cbe3e7beaea505862.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_b6f55a4c94e04246bc34bfbc3ff69bbf = L.marker(
+                [25.6526883, -100.4122654],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_8fb0182d805d44289b8d5a84e1aa27d4 = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_b6f55a4c94e04246bc34bfbc3ff69bbf.setIcon(custom_icon_8fb0182d805d44289b8d5a84e1aa27d4);
+        
+    
+        var popup_0d7bfefa6dea46ffb38be26da3780c8c = L.popup({"maxWidth": "100%"});
+
+        
+            var html_b0eeb3bdd4db441e8660484b76efaf8e = $(`<div id="html_b0eeb3bdd4db441e8660484b76efaf8e" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $50244</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/penthouse-torre-west?index=13749</a></div><div><strong>En Venta: &#20 $34126</strong></div></div>`)[0];
+            popup_0d7bfefa6dea46ffb38be26da3780c8c.setContent(html_b0eeb3bdd4db441e8660484b76efaf8e);
+        
+
+        marker_b6f55a4c94e04246bc34bfbc3ff69bbf.bindPopup(popup_0d7bfefa6dea46ffb38be26da3780c8c)
+        ;
+
+        
+    
+    
+            marker_b6f55a4c94e04246bc34bfbc3ff69bbf.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_08845ab2b0314fbdb460545680e8704a = L.marker(
+                [25.6863582, -100.3761083],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_bf5ced1747c5464cb3f52f23910d64ea = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_08845ab2b0314fbdb460545680e8704a.setIcon(custom_icon_bf5ced1747c5464cb3f52f23910d64ea);
+        
+    
+        var popup_fdaf5c3a567848c0939139f9436f8179 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_3f0ef9da813e442bb7920d50bd70fad5 = $(`<div id="html_3f0ef9da813e442bb7920d50bd70fad5" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $49063</strong></p><br></br><div><a href=https://propiedades.com/inmuebles/departamento-en-venta-camino-de-los-ibis-colinas-de-san-jeronimo-nuevo_leon-9816123#pagina=316&tipos=residencial-venta&area=nuevo-leon&precio-min=500000&precio-max=30000000&pos=3</a></div><div><strong>En Venta: &#20 $34142</strong></div></div>`)[0];
+            popup_fdaf5c3a567848c0939139f9436f8179.setContent(html_3f0ef9da813e442bb7920d50bd70fad5);
+        
+
+        marker_08845ab2b0314fbdb460545680e8704a.bindPopup(popup_fdaf5c3a567848c0939139f9436f8179)
+        ;
+
+        
+    
+    
+            marker_08845ab2b0314fbdb460545680e8704a.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_e6e2420a879144ac8a6b7afb713267f6 = L.marker(
+                [25.7104336, -100.3654061],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_a457e38936e3449c96dda5e132e21843 = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_e6e2420a879144ac8a6b7afb713267f6.setIcon(custom_icon_a457e38936e3449c96dda5e132e21843);
+        
+    
+        var popup_fdbae437d8b34af397d2deb05247ae9b = L.popup({"maxWidth": "100%"});
+
+        
+            var html_87b89fda8a364af39fb988480c8b0b2c = $(`<div id="html_87b89fda8a364af39fb988480c8b0b2c" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $57945</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/venta-departamento-cumbres-cerca-de-leones-gonzalitos-monterrey-nuevo-leon-burocratas-del-estado-monterrey?index=15139</a></div><div><strong>En Venta: &#20 $40952</strong></div></div>`)[0];
+            popup_fdbae437d8b34af397d2deb05247ae9b.setContent(html_87b89fda8a364af39fb988480c8b0b2c);
+        
+
+        marker_e6e2420a879144ac8a6b7afb713267f6.bindPopup(popup_fdbae437d8b34af397d2deb05247ae9b)
+        ;
+
+        
+    
+    
+            marker_e6e2420a879144ac8a6b7afb713267f6.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_817c5e389ef14eafbce8a5f9a143b809 = L.marker(
+                [25.6863582, -100.3761083],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_544fada479b641e4802a16c01cb819b3 = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_817c5e389ef14eafbce8a5f9a143b809.setIcon(custom_icon_544fada479b641e4802a16c01cb819b3);
+        
+    
+        var popup_45490122610c44f4bfc7d940a27b776e = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fe72b4c5a0fd41939ce69639a0811725 = $(`<div id="html_fe72b4c5a0fd41939ce69639a0811725" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $48783</strong></p><br></br><div><a href=https://propiedades.com/inmuebles/departamento-en-venta-camino-de-los-ibis-colinas-de-san-jeronimo-nuevo_leon-9816115#pagina=313&tipos=residencial-venta&area=nuevo-leon&precio-min=500000&precio-max=30000000&pos=12</a></div><div><strong>En Venta: &#20 $34655</strong></div></div>`)[0];
+            popup_45490122610c44f4bfc7d940a27b776e.setContent(html_fe72b4c5a0fd41939ce69639a0811725);
+        
+
+        marker_817c5e389ef14eafbce8a5f9a143b809.bindPopup(popup_45490122610c44f4bfc7d940a27b776e)
+        ;
+
+        
+    
+    
+            marker_817c5e389ef14eafbce8a5f9a143b809.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_156172a454e048dfa2daa1f72b775801 = L.marker(
+                [25.6957192, -100.3560834],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_618db5e503494c33a996516386a7e88a = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_156172a454e048dfa2daa1f72b775801.setIcon(custom_icon_618db5e503494c33a996516386a7e88a);
+        
+    
+        var popup_47275e6206e541749d0621a7c0d77455 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_03d92a3de48540b5b9b0dcceb518ed01 = $(`<div id="html_03d92a3de48540b5b9b0dcceb518ed01" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $48486</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/departamento-en-pre-venta-cumbres-4-sector?index=3760</a></div><div><strong>En Venta: &#20 $34766</strong></div></div>`)[0];
+            popup_47275e6206e541749d0621a7c0d77455.setContent(html_03d92a3de48540b5b9b0dcceb518ed01);
+        
+
+        marker_156172a454e048dfa2daa1f72b775801.bindPopup(popup_47275e6206e541749d0621a7c0d77455)
+        ;
+
+        
+    
+    
+            marker_156172a454e048dfa2daa1f72b775801.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_154c7437a1464cdbba3c31d44cf364c2 = L.marker(
+                [25.66671026, -100.3177301],
+                {}
+            ).addTo(map_46988563d5174a2496549bfd8240c349);
+        
+    
+        var custom_icon_5999a88c16bd4f96a38602d589a7505f = L.icon({"iconSize": [40, 46], "iconUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAwCAYAAABnjuimAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAhdEVYdENyZWF0aW9uIFRpbWUAMjAyMTowODoyOCAxMToyMzowMjZpB8QAAAMhSURBVGhD7ZjPTttAEMZnTAsEVWqqSvRY+gZw6zEWpRFHngBV6h36BIQnKDxB6bUXuKGWP8ml5/IG0GN6AaQSAko8nUkmrpW1N7t2OdU/KfHuKLE/f96dmQRKSkpKSv4PUI9u7FMVZrvVwXi1cjE4ekL7T/kcUIUuXOHa9ZWGJ+Im9PB2AabpE48WAXEolEgucgD3uO0img6f12hqagsRaxoCArrgt53g7a9dDWUyWejp3TpQfycWOA7xxXrRGtSfnGnEIDqe30LChk4NRDD2MMTVduYN24WKkzNwrrNsRGxQWYIQjUfJIjdY5I5OMyGiFjsb6tQg0GM6w8c9GcQFiDqbOouhJq9HAiOehiwJOnwRL4txsoU2L6v87cwvmgQbOvhLf6aGwDfhCE3Rug4NsoX2Zhd15AbyTv4evdTZkD75niOHo1HgnDpi7vFaRzkx1/iIbKHTHb88KRvK3Ex+54jgp44MsoWGz6744i2dTQbB/Oz0/QHvZucnwynoQIcG2UKFXvRBR3bETeTEPwaGg8pjxNOQ9IT19p5ODexCJYlH8E5n6YhjASf8ML06cW6UHGoVSwRn2EfrdexChTeVPX4mr4CizxoZIgKJdiFATvTZVUnAlXZDblhc09AAXRbbeNO1ViU7UpXkNU5W3BFpSjixL8hLQzHSD+jQg6PbGpzcXsLxjVNlKYKIjr7NN6Oj+cxybX/0ksSD4COcdJpFXLQhvQA9oh/JriqNyWtUkJNIc3La2dJIYUYuSsPCZTa9M0vgJjSGW7WTznlRd11dTOIplJFOKae7vi4m8Rca4+duHheTFBDKOLhbxMUkxYTGpLtb1MUk2UJ927yEu/ldzNPm1WfOoA8h1znP0oaN1uPX574uEndO+Lub8zfTSqUFwd3SoKY/EFzvxYgwWGmv2X7nT16j0pcuz23mc9cORbCLN3dL3LRM7HvdN5O4uzzHXZRbf2kjdrHe3nT9t8Rd6IjlSmPY9uVz18fFJP5CBWmSPd3N42KSfEJHOLqb18UkxYQKFneLupikuNARY+7+CxcfnC9f3/v9Q1JSUlIyBsAftRd86znqk64AAAAASUVORK5CYII=", "shadowSize": [100, 100]});
+        marker_154c7437a1464cdbba3c31d44cf364c2.setIcon(custom_icon_5999a88c16bd4f96a38602d589a7505f);
+        
+    
+        var popup_3a83c7cf12da448b9053b13f7ebc54fd = L.popup({"maxWidth": "100%"});
+
+        
+            var html_32f0ae3da29740329135fbc83cd5cf02 = $(`<div id="html_32f0ae3da29740329135fbc83cd5cf02" style="width: 100.0%; height: 100.0%;"><h3> $/m2: </strong><br></br></h3><p><strong>Estimacion Yodea: &#20 $49242</strong></p><br></br><div><a href=https://www.easybroker.com/agent/properties/increibles-departamentos-en-preventa-centro-de-monterrey?index=8675</a></div><div><strong>En Venta: &#20 $35338</strong></div></div>`)[0];
+            popup_3a83c7cf12da448b9053b13f7ebc54fd.setContent(html_32f0ae3da29740329135fbc83cd5cf02);
+        
+
+        marker_154c7437a1464cdbba3c31d44cf364c2.bindPopup(popup_3a83c7cf12da448b9053b13f7ebc54fd)
+        ;
+
+        
+    
+    
+            marker_154c7437a1464cdbba3c31d44cf364c2.bindTooltip(
+                `<div>
+                     click
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
